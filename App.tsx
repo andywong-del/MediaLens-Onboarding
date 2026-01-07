@@ -6,9 +6,9 @@
 import React, { useState } from 'react';
 import { 
   Menu, Search, Bell, Globe, ChevronDown, ChevronRight,
-  Share2, Radio, Trophy, Search as SearchIcon, 
-  Activity, Cpu, Clock, Plus, Layout as LayoutIcon, Home,
-  Flame, Target, Megaphone, BellRing, Share
+  Trophy, Search as SearchIcon, 
+  Activity, Layout as LayoutIcon, Home,
+  Flame, Target, Megaphone, BellRing, Share, Zap
 } from 'lucide-react';
 import { AppView } from './types';
 import { useApiKey } from './hooks/useApiKey';
@@ -51,7 +51,7 @@ const FeatureCard = ({ title, text, color, icon: Icon, isPremium }: {
       <h3 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors leading-tight truncate">{title}</h3>
       <p className="text-[11px] text-gray-500 mb-3 leading-tight line-clamp-2 font-medium">{text}</p>
       <div className="mt-auto flex items-center text-blue-600 font-bold text-[11px] group-hover:gap-2 transition-all">
-        Launch <ChevronRight size={14} className="ml-0.5" />
+        Start Now <ChevronRight size={14} className="ml-0.5" />
       </div>
     </div>
   </div>
@@ -68,22 +68,21 @@ export default function App() {
     <div className="h-screen w-screen bg-[#F8FAFC] text-gray-900 font-sans flex flex-col overflow-hidden relative">
       {showApiKeyDialog && <ApiKeyDialog onContinue={handleApiKeyDialogContinue} />}
 
-      {/* STICKY BAR */}
+      {/* STICKY BAR - SINGLE ROW CENTERED */}
       <div className="shrink-0 bg-gradient-to-r from-[#00416A] via-[#12b3eb] to-[#7ad2f6] z-[200] py-3 px-8 border-b border-white/20 shadow-2xl">
-         <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-center gap-6">
-            <div className="flex items-center gap-4">
-               <span className="text-2xl animate-pulse">💡</span>
-               <p className="text-white font-extrabold text-base md:text-lg tracking-tight drop-shadow-lg">
-                  Connect channels to run your actual business and serve real clients!
+         <div className="max-w-[1600px] mx-auto flex items-center justify-center gap-8">
+            <div className="flex items-center gap-3">
+               <Zap size={18} className="text-white fill-white animate-pulse" />
+               <p className="text-white font-extrabold text-sm md:text-base tracking-tight uppercase">
+                  Upgrade to unlock all the premium functions
                </p>
             </div>
-            <div className="flex items-center gap-4 shrink-0">
-               <button className="px-6 py-2.5 bg-white/10 backdrop-blur-md border-2 border-white/40 text-white rounded-full font-black text-xs hover:bg-white/20 transition-all active:scale-95 shadow-lg uppercase tracking-wider">
-                  Upgrade now
+            <div className="flex items-center gap-3">
+               <button className="px-8 py-2 bg-white text-[#00416A] rounded-full font-black text-xs hover:scale-105 transition-all shadow-xl active:scale-95 uppercase tracking-widest">
+                  Upgrade Now
                </button>
-               <button className="px-6 py-2.5 bg-[#5ce1bc] text-[#052b22] rounded-full font-black text-xs hover:bg-[#4dd0ab] transition-all flex items-center gap-2 shadow-[0_10px_30px_rgba(92,225,188,0.5)] active:scale-95 uppercase tracking-wider">
-                  <Share size={14} strokeWidth={3} />
-                  Connect channel
+               <button className="px-5 py-2 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-bold text-[10px] hover:bg-white/20 transition-all uppercase tracking-tight">
+                  Connect
                </button>
             </div>
          </div>
@@ -164,11 +163,10 @@ export default function App() {
                 </p>
              </div>
 
-             {/* Grid - 3x2 Layout */}
              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-hidden">
                 <FeatureCard 
                   title="Brand Health Check" 
-                  text="Real-time brand sentiment and ROI scores." 
+                  text="Real-time brand sentiment and ROI mapping." 
                   color="bg-blue-50/70" icon={Activity}
                 />
                 <FeatureCard 
@@ -198,7 +196,6 @@ export default function App() {
                 />
              </div>
 
-             {/* Alert Banner */}
              <div className="mt-6 shrink-0 bg-slate-900 rounded-2xl p-6 text-white flex items-center justify-between shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-blue-600/10 blur-[60px] rounded-full"></div>
                 <div className="relative z-10 flex items-center gap-6">
@@ -206,12 +203,12 @@ export default function App() {
                       <BellRing size={20} className="text-blue-400" />
                    </div>
                    <div>
-                      <h2 className="text-lg font-bold">Smart Alert Active</h2>
-                      <p className="text-slate-400 text-sm font-medium">Predictive monitoring for your brand shift.</p>
+                      <h2 className="text-lg font-bold">Smart Alert Engine</h2>
+                      <p className="text-slate-400 text-sm font-medium">Predictive monitoring for critical brand shifts.</p>
                    </div>
                 </div>
-                <button className="relative z-10 px-6 py-2.5 bg-white text-slate-900 rounded-xl font-black text-xs hover:bg-blue-50 transition-all shadow-lg active:scale-95 uppercase">
-                   Setup Alerts
+                <button className="relative z-10 px-6 py-2.5 bg-blue-600 text-white rounded-xl font-black text-xs hover:bg-blue-500 transition-all shadow-lg active:scale-95 uppercase">
+                   Configure
                 </button>
              </div>
           </div>
