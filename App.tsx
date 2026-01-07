@@ -82,7 +82,7 @@ export default function App() {
                   Upgrade Now
                </button>
                <button className="px-5 py-2 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-bold text-[10px] hover:bg-white/20 transition-all uppercase tracking-tight">
-                  Connect
+                  Connect Your Page
                </button>
             </div>
          </div>
